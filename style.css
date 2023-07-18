@@ -1,0 +1,158 @@
+:root{
+    --primColor: white;
+    --pri: black;
+    --typeSpeed: 1s;
+    --typeCount: 5;
+}
+
+/* General Start */
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* General End */
+
+/* Header Start */
+
+.title{
+    font-family: 'Press Start 2P', cursive;
+    margin-top: 20px;
+}
+
+/* Header End */
+
+/* main start */
+
+/*-----TypeIntro start-----*/
+
+/*
+    CSS from animation tutorial on YouTube by Kevin Powell
+    link in the next line:
+    https://www.youtube.com/watch?v=w1nhwUGsG6M 
+*/
+
+.typeContainer{
+    position: relative;
+    height: 20rem;
+}
+
+.typeBody{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.typeHeader{
+    font-size: 6.2rem;
+    position: relative;
+    width: max-content;
+}
+
+.typeHeader::before,
+.typeHeader::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.typeHeader::before{
+    background: var(--primColor);
+    animation: 
+        typewriter var(--typeSpeed) 1s steps(var(--typeCount)) forwards;
+}
+
+.typeHeader::after{
+    width: .125em;
+    background-color: black;
+    animation: 
+        typewriter var(--typeSpeed) 1s steps(var(--typeCount)) forwards,
+        blink 750ms steps(28) infinite;
+}
+
+.subtitle{
+    font-size: 6.2rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(3rem);
+    animation: fadeIn 2s ease calc(var(--typeSpeed) + 1.4s) forwards;
+}
+
+@keyframes typewriter{
+    to {left: 100%;}
+}
+
+@keyframes blink{
+    to {
+        background: transparent;
+    }
+}
+
+@keyframes fadeIn{
+    to{
+        opacity: 1;
+        transform: translate(0, 0)
+    }
+}
+
+@media (max-width: 830px){
+    .typeHeader{
+        font-size: 6.6rem;
+    }
+}
+@media (max-width: 660px){
+    .typeContainer{
+        height: 18rem;
+    }
+    .typeHeader{
+        font-size: 4.8rem;
+    }
+    .subtitle{
+        font-size: 4.8rem;
+    }
+}
+@media (max-width: 490px){
+    .typeContainer{
+        height: 12rem;
+    }
+    .typeHeader{
+        font-size: 3.2rem;
+    }
+    .subtitle{
+        font-size: 3.2rem;
+    }
+}
+@media (max-width: 340px){
+    .typeContainer{
+        height: 10rem;
+    }
+    .typeHeader{
+        font-size: 2.5rem;
+    }
+    .subtitle{
+        font-size: 2.5rem;
+    }
+}
+
+/*-----TypeIntro end-----*/
+/*-----Logo Start-----*/
+
+.logo-body{
+    text-align: center;
+    opacity: 0;
+    transform: translateX(8rem);
+    /* animation fadeIn is in TypeIntro */
+    animation: fadeIn 2s ease calc(var(--typeSpeed) + 1.5s) forwards;
+    margin-bottom: 3rem;
+}
+
+/*-----Logo end-----*/
+
+/* main end */
+
+
