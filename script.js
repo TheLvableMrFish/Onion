@@ -50,7 +50,7 @@ const imgCol = [
         text: "Along with making memories"
     },
     {
-        img: "img4.jpg",
+        img: "img5.jpg",
         size: 4,
         text: "And most of all"
     },
